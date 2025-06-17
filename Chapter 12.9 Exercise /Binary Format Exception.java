@@ -1,19 +1,3 @@
-String binaryString = "101100"; // Invalid binary (Only 0 and 1 allowed)
-try {
-  int num = Integer.parseInt(binary, 2); // Throws NumberFormatException
-  System.out.println("Num: " + num);
-} catch (NumberFormatException e) {
-  System.out.println("Invalid Binary Format: " e.getMessage());
-}
-// Tips: Use try-catch above blocks to handle the exception to prevent crashes program.
-public static boolean isValidBinary(String input) {
-  for (char c : input.toCharArray()) {
-    if (c != '0' && c != '1') {
-      return false;
-    }
-  }
-  return true;
-}
 class BinaryFormatException extends Exception {
   public BinaryFormatException(String message) {
     super(message);
@@ -21,5 +5,23 @@ class BinaryFormatException extends Exception {
 }
 public class BinaryParser {
   public int parseBinary(String binaryString) throws BinaryFormatException {
+    for (char c : binaryString.toCharArray()) {
+      // Invalid binary (Only 0 and 1 allowed)
+      if (c != '0' && c != '1') {
+        throw new BinaryFormatException(Invalid character in binary string: " + c);
+      }
+    }
+    return Integer.parseInt(binaryString, 2);
+  }
+  public static void main(String[] args) {
+    BinaryParser parser = new BinaryParser();
+    String binaryString = "101100"; // binary input: 
+// Tips: Use try-catch blocks to handle exceptions to prevent crashes program.
+    try {
+      int num = parser.parseBinary(binaryString);
+      System.out.println("Num: " + num);
+    } catch (BinaryFormatException e) {
+      System.out.println("Invalid Binary Format: " + e.getMessage());
+    }
   }
 }
