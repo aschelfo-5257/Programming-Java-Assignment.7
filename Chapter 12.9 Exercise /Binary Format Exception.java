@@ -8,7 +8,7 @@ public class BinaryParser {
     for (char c : binaryString.toCharArray()) {
       // Invalid binary (Only 0 and 1 allowed)
       if (c != '0' && c != '1') {
-        throw new BinaryFormatException(Invalid character in binary string: " + c);
+        throw new BinaryFormatException("Invalid character in binary string: " + c);
       }
     }
     return Integer.parseInt(binaryString, 2);
