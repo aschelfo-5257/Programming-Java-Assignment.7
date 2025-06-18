@@ -16,7 +16,7 @@ public class BinaryParser {
   public static void main(String[] args) {
     BinaryParser parser = new BinaryParser();
     String binaryString = "101100"; // binary input: 
-// Tips: Use try-catch blocks to handle exceptions to prevent crashes program.
+// Tips: Use try-catch blocks to handle exceptions to prevent crashes program
     try {
       int num = parser.parseBinary(binaryString);
       System.out.println("Num: " + num);
